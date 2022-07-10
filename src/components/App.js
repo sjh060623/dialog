@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AppRouter from "components/Router";
 import { authService } from "fbase";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Oval } from "react-loader-spinner";
 
 function App() {
   const [init, setInit] = useState(false);
@@ -36,7 +38,15 @@ function App() {
           userObj={userObj}
         />
       ) : (
-        "로그인중"
+        <Oval
+          ariaLabel="loading-indicator"
+          height={100}
+          width={100}
+          strokeWidth={5}
+          strokeWidthSecondary={1}
+          color="black"
+          secondaryColor="white"
+        />
       )}
     </>
   );
